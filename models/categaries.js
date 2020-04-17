@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     );
     categaries.associate = function(models) {
         // associations can be defined here
-        categaries.hasOne(models.products, { as: 'products' });
+        categaries.hasOne(models.products);
     };
     return categaries;
 };

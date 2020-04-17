@@ -1,19 +1,18 @@
-const { categaries } = require('../models');
+const db = require('../models');
 var express = require('express');
 var router = express.Router();
-
-router.post('/add-new-categary', (req, res) => {
-    categaries
+router.post('category/add', (req, res) => {
+    db.categaries
         .create({ title: req.body.title })
-        .then(result => {
+        .then((result) => {
             res.json(result);
         })
-        .catch(err => {
+        .catch((err) => {
             console.error('error is ', err);
         });
 });
-router.get('/categaries', (req, res) => {
-    categaries.findAll().then(data => res.send(data));
+router.get('category/all', (req, res) => {
+    db.categaries.findAll().then((data) => res.send(data));
 });
 
 module.exports = router;
