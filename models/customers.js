@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     );
     customers.associate = function(models) {
         // associations can be defined here
-        customers.hasMany(models.order, { as: 'order' });
+        // customers.hasMany(models.order, { as: 'order' });
     };
     return customers;
 };

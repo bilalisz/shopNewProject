@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+    <%- include('partials/header') %>
+
+        <div class="container-fluid">
+            <div class="row">
+                <%- include('partials/nav') %>
+
+
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                        <div style="height: 90vh; overflow: auto;">
+                            <table class="table mt-5">
+
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col" style="position: sticky; top:30px;">S/No</th>
+                                        <th scope="col" style="position: sticky; top:30px;">Title</th>
+                                        <th scope="col" style="position: sticky; top:30px;">Price</th>
+                                        <th scope="col" style="position: sticky; top:30px;">quntity</th>
+                                        <th scope="col" style="position: sticky; top:30px;">Update / Delete</th>
+                                    </tr>
+                                </thead>
+
+
+
+                                <tbody class="scrollable">
+                                    <tr>
+                                        <% data.forEach((data,count)=>{ %>
+
+                                            <tr>
+                                                <td>
+                                                    <%= count %>
+                                                </td>
+                                                <td>
+                                                    <%= data.title %>
+                                                </td>
+                                                <td>
+                                                    <%= data.unitPrice %>
+                                                </td>
+                                                <td>
+                                                    <%= data.quntity %>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-success"> Update</button>
+
+                                                    <button class="btn btn-danger"> Delete</button>
+                                                </td>
+                                                <% })%>
+
+                                            </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row mt-1" style="position: relative; margin-bottom: 10px;">
+                            <div class="col-md-4 bg-success text-light">
+                                <h3>Total Item :
+                                    <% data.forEach(count)=>{ %>
+
+                                        <%  }%>
+
+                                </h3>
+                            </div>
+                            <div class="col-md-4 bg-success text-light">
+                                <h3>Total Price : </h3>
+                            </div>
+                            <div class="col-md-4 bg-success text-light">
+                                <h3>Discount : 0 PKR </h3>
+                            </div>
+                    </main>
+
+
+
+                    </div>
+                    </section>
+            </div>
+        </div>

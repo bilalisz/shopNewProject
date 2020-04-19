@@ -5,10 +5,13 @@
     "main": "app.js",
     "dependencies": {
         "body-parser": "^1.19.0",
+        "bootstrap": "^4.4.1",
         "cors": "^2.8.5",
+        "ejs": "^3.0.2",
         "express": "^4.17.1",
         "express-generator": "^4.16.1",
         "mysql2": "^2.1.0",
+        "path": "^0.12.7",
         "sequelize": "^5.21.6",
         "sequelize-cli": "^5.5.1"
     },

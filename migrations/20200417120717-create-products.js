@@ -20,14 +20,14 @@ module.exports = {
             quntity: {
                 type: Sequelize.STRING,
             },
-            categariesId: {
-                type: Sequelize.INTEGER,
-                allowNull: false,
-                references: {
-                    model: 'categaries',
-                    key: 'id',
-                },
-            },
+            // categoryId: {
+            //     type: Sequelize.INTEGER,
+            //     allowNull: false,
+            //     references: {
+            //         model: 'categaries',
+            //         key: 'id',
+            //     },
+            // },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,

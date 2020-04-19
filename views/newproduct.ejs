@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+    <%- include('partials/header') %>
+
+        <div class="container-fluid">
+            <div class="row">
+                <%- include('partials/nav') %>
+
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-4">
+                        <form class="form-signin" method="POST" action="newproduct">
+                            <div class="bg-dark text-light mt-4">
+                                <h1 class="h3 mb-3 font-weight-normal">Add New Product</h1>
+                            </div>
+                            <label class="sr-only">Title</label>
+                            <input type="text" name="title" class="form-control " placeholder="enter Product Name" required>
+                            <label class="sr-only">Unit Price</label>
+                            <input type="text" name="unitPrice" class="form-control mt-4" placeholder="enter Sale Price" required>
+                            <label class="sr-only">Retail Price</label>
+                            <input type="text" name="purachasePrice" class="form-control mt-4" placeholder="enter Retail Price" required>
+                            <label class="sr-only">quntity</label>
+                            <input type="text" name="quntity" class="form-control mt-4" placeholder="enter Qty" required>
+
+
+                            <button class="btn btn-lg btn-primary btn-block mt-4" style="width: fit-content;" type="submit">Add Product</button>
+
+                        </form>
+                    </main>
+            </div>
+        </div>
+        <%- include('partials/footer') %>

@@ -1,28 +1,43 @@
+const express = require('express');
 const db = require('../models');
-var express = require('express');
-var router = express.Router();
-router.post('product/add', (req, res) => {
+const router = express.Router();
+
+router.get('/products', function(req, res) {
+    db.products
+        .findAll({
+            attributes: ['id', 'title', 'unitPrice', 'quntity'],
+        })
+        .then(result => {
+            res.render('products', { data: result, count: 1 });
+        })
+        .catch(err => {
+            res.send(err);
+            console.log('err is ' + err);
+        });
+});
+
+router.get('/newproduct', function(req, res) {
+    res.render('newproduct');
+});
+
+router.post('/newproduct', (req, res) => {
     db.products
         .create({
             title: req.body.title,
             unitPrice: req.body.unitPrice,
             purachasePrice: req.body.purachasePrice,
             quntity: req.body.quntity,
-            categariesId: req.body.categayiesId,
+            categoryId: 1,
         })
-        .then((result) => {
+        .then(result => {
             if (result) {
                 res.send('saved');
             }
+            res.send('not save');
         })
-        .catch((err) => {
-            console.log('error is ', err);
+        .catch(err => {
+            res.send(err);
         });
 });
-router.get('product/showall', (req, res) => {
-    db.products.findAll().then((data) => res.send(data));
-});
-router.get('product/show', (req, res) => {
-    db.products.findById({ id: 2 }).then((data) => res.send(data));
-});
+
 module.exports = router;

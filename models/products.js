@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
             unitPrice: DataTypes.STRING,
             purachasePrice: DataTypes.STRING,
             quntity: DataTypes.STRING,
-            categariesId: DataTypes.INTEGER,
+            categoryId: DataTypes.INTEGER,
         }, {}
     );
     products.associate = function(models) {
-        products.belongsTo(models.categaries);
+        // products.belongsTo(models.categaries);
     };
     return products;
 };
