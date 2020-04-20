@@ -1,14 +1,18 @@
 const express = require('express');
 const db = require('../models');
 const router = express.Router();
-
 router.get('/products', function(req, res) {
     db.products
         .findAll({
             attributes: ['id', 'title', 'unitPrice', 'quntity'],
+            include: [{
+                attributes: ['title'],
+                model: db.categories,
+            }, ],
         })
-        .then(result => {
-            res.render('products', { data: result, count: 1 });
+        .then(rows => {
+            console.log(rows);
+            res.render('products', { data: rows, total: rows.length });
         })
         .catch(err => {
             res.send(err);
@@ -17,7 +21,10 @@ router.get('/products', function(req, res) {
 });
 
 router.get('/newproduct', function(req, res) {
-    res.render('newproduct');
+    let data = { message: '' };
+    if (req.query.message) data = { message: req.query.message };
+    console.log(data);
+    res.render('newproduct', data);
 });
 
 router.post('/newproduct', (req, res) => {
@@ -30,10 +37,24 @@ router.post('/newproduct', (req, res) => {
             categoryId: 1,
         })
         .then(result => {
-            if (result) {
-                res.send('saved');
-            }
-            res.send('not save');
+            req.saved = 'Record Saved';
+            res.redirect('/newproduct?message=Record saved succesfuly.');
+        })
+        .catch(err => {
+            res.send(err);
+        });
+});
+
+router.get('/delete/:id', (req, res) => {
+    console.log('i am here');
+    db.products
+        .destroy({
+            where: {
+                id: req.params.id,
+            },
+        })
+        .then(result => {
+            res.redirect('/products');
         })
         .catch(err => {
             res.send(err);

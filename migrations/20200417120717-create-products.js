@@ -23,7 +23,7 @@ module.exports = {
             // categoryId: {
             //     type: Sequelize.INTEGER,
             //     allowNull: false,
-            //     references: {
+            //     refe/rences: {
             //         model: 'categaries',
             //         key: 'id',
             //     },

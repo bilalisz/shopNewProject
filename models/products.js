@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         }, {}
     );
     products.associate = function(models) {
-        // products.belongsTo(models.categaries);
+        products.belongsTo(models.categories);
     };
     return products;
 };
