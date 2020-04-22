@@ -11,7 +11,6 @@ router.get('/products', function(req, res) {
             }, ],
         })
         .then(rows => {
-            console.log(rows);
             res.render('products', { data: rows, total: rows.length });
         })
         .catch(err => {
@@ -23,7 +22,6 @@ router.get('/products', function(req, res) {
 router.get('/newproduct', function(req, res) {
     let data = { message: '' };
     if (req.query.message) data = { message: req.query.message };
-    console.log(data);
     res.render('newproduct', data);
 });
 
